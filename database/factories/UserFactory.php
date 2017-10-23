@@ -23,3 +23,24 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Tweet::class, function (Faker $faker) {
+    return [
+        'user_id' => function () {
+            return factory('App\User')->create()->id;
+        },
+        'body'    => $faker->text(140)
+    ];
+});
+
+$factory->define(App\Reply::class, function (Faker $faker) {
+    return [
+        'tweet_id' => function () {
+            return factory('App\Tweet')->create()->id;
+        },
+        'user_id'  => function () {
+            return factory('App\User')->create()->id;
+        },
+        'body'     => $faker->text(100)
+    ];
+});
