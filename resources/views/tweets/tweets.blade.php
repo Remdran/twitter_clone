@@ -30,8 +30,18 @@
                                     {{ $reply->body }}
                                 </div>
                             @endforeach
-
                         </div>
+
+                        @if (auth()->check())
+                            <form action="/tweets/{{ $tweet->id }}/replies" method="POST">
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <textarea name="body" id="body" class="form-control" placeholder="Add a reply"
+                                              rows="5"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Reply</button>
+                            </form>
+                        @endif
                     @endforeach
 
                 </div>

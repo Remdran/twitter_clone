@@ -18,7 +18,7 @@ class ParticipateInConvoTest extends TestCase
 
         $tweet = factory('App\Tweet')->create();
 
-        $reply = factory('App\Reply')->create();
+        $reply = factory('App\Reply')->make();
 
         $this->post('/tweets/' . $tweet->id . '/replies', $reply->toArray());
 
