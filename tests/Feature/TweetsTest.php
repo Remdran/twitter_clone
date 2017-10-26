@@ -29,7 +29,7 @@ class TweetsTest extends TestCase {
     /** @test */
     public function a_user_can_see_a_single_tweet()
     {
-        $this->get('/' . $this->tweet->id)
+        $this->get('/tweets/' . $this->tweet->id)
             ->assertSee($this->tweet->body);
     }
 

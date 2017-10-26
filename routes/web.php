@@ -15,5 +15,7 @@
 Auth::routes();
 
 Route::get('/', 'TweetController@index');
-Route::get('/{tweet}', 'TweetController@show');
+Route::get('/tweets/{tweet}', 'TweetController@show');
 Route::get('/home', 'TweetController@index');
+
+Route::post('/tweets/{tweet}/replies', 'ReplyController@store');
